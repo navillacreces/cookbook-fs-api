@@ -40,9 +40,10 @@ recipeRouter
         recipeService.insertRecipe(knexInstance,newRecipe)
             .then(recipe =>{
                 res.location(`https://localhost:8000/recipes/{recipe.id}`).status(201).json(recipe)
-
             })
-            .catch(next)
+            .catch(err => {
+                res.send("not posted" + JSON.stringify(err))
+            });
         
 
     })

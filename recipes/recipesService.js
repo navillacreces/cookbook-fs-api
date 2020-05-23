@@ -10,7 +10,7 @@ const recipesService = {
     insertRecipe(knex, newRecipe){
 
         return knex
-        .insert('newReceipe')
+        .insert(newRecipe)
         .into('recipes')
         .returning('*')
         .then(rows =>{
@@ -18,14 +18,9 @@ const recipesService = {
         })
         
     },
-
     deleteRecipe(knex, id ){
-
         return knex('notes').where({id}).delete()
-
     }
-
-
 }
 
 
