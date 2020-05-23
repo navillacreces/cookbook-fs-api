@@ -1,22 +1,14 @@
 const recipesService = {
 
 
-    getRecipes(/* knex */){
+    getAllRecipes(knex){
 
-        /*
-        return knex
-        .select ('*')
-        .from('recipes')
-
-
-
-        */
+        return knex.select('*').from('recipes');
 
     },
 
-    insertRecipe(/* knex, newRecipe */){
+    insertRecipe(knex, newRecipe){
 
-        /*
         return knex
         .insert('newReceipe')
         .into('recipes')
@@ -24,11 +16,12 @@ const recipesService = {
         .then(rows =>{
                 return rows[0]
         })
-        */
-
+        
     },
 
-    deleteRecipe(/* knex, recipeId */){
+    deleteRecipe(knex, id ){
+
+        return knex('notes').where({id}).delete()
 
     }
 
