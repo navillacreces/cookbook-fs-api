@@ -1,10 +1,10 @@
 const express = require('express')
 const recipeService = require('./recipesService')
-const recipeRoute = express.Router()
+const recipeRouter = express.Router()
 const bodyParser = express.json()
 
 
-recipeRoute
+recipeRouter
     .route('/')
 
     .get((req,res,next) =>{
@@ -46,3 +46,5 @@ recipeRoute
         
 
     })
+
+    module.exports = recipeRouter
