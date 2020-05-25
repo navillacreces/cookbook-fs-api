@@ -9,11 +9,6 @@ const app = express()
 const recipeRouter = require('../recipes/recipes-router')
 
 
-app.get('/', (req, res) => {
-
-    res.send('Hello, world!')
-})
-
 const morganOption = process.env.NODE_ENV === 'production' ? 'tiny' : 'common'
 
 app.use(morgan(morganOption))
@@ -23,6 +18,7 @@ app.use(express.json())
 app.use('/recipes', recipeRouter)
 
 app.use(function errorHandler(error, req, res, next) {
+  console.error(error)
    let response
    if (NODE_ENV === 'production') {
      response = { error: { message: 'server error' } }
