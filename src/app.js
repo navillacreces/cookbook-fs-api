@@ -6,7 +6,7 @@ const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const app = express()
 
-const recipeRouter = require('../recipes/recipes-router')
+const recipeRouter = require('./recipes/recipes-router')
 
 
 const morganOption = process.env.NODE_ENV === 'production' ? 'tiny' : 'common'
